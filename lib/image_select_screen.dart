@@ -4,6 +4,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image/image.dart' as image_lib;
 
+import 'package:edit_snap/edit_snap_screen.dart';
+
 class ImageSelectScreen extends StatefulWidget {
   const ImageSelectScreen({super.key});
 
@@ -69,7 +71,15 @@ class _ImageSelectScreenState extends State<ImageSelectScreen> {
             if (imageBitmap != null)
               ElevatedButton(
                 child: Text(l10n.imageEdit),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ImageEditScreen(
+                        imageBitmap: imageBitmap,
+                      ),
+                    ),
+                  );
+                },
               )
           ],
         ),
